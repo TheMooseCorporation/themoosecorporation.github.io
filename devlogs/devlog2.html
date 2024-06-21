@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../moose.css">
+    <title>Project Towny</title>
+</head>
+<body>
+<a id="top"></a>
+<header>
+    <img src="../images/main_logo.png" alt="Project Towny">
+    <div id="navheader">
+        <a href="https://www.curseforge.com/minecraft/modpacks/project-towny" target="_blank"><img src="../images/curse.png" alt="Curseforge" width="120"></a>
+        <a href="https://discord.com/invite/DxECCP8EhV"><img src="../images/discord.png" alt="Discord" width="120"></a>
+    </div>
+</header>
+<br>
+<div class="left">
+    <nav>
+        <ul id="navlist">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="devlog1.html">DevLog 1 <span style="font-size: 16pt">5/30/2024</span></a></li>
+            <li><a href="devlog2.html">DevLog 2 <span style="font-size: 16pt">6/20/2024</span></a></li>
+        </ul>
+    </nav>
+    <div id="server">
+        <p style="text-align: center"><u>Official Server</u></p>
+        <p>Server Ip: towny.themoosecorporation.com</p>
+        <p>Server Status: <span style="color: red">Offline</span></p>
+        <p>Player Count: 0/100</p>
+    </div>
+    <div id="contact">
+        <p><u>Contact Information</u></p>
+        <p>Questions, concerns, suggestions? Talk to us on our Discord!</p>
+        <p><a href="https://discord.com/invite/DxECCP8EhV">https://discord.com/invite/DxECCP8EhV</a></p>
+    </div>
+</div>
+<main>
+    <h1><u>DevLog 2 <span style="font-size: 16pt">[6/20/2024]</span></u></h1>
+    <h2>Solar Flux Reborn Rework Finished, Tech Tree Planning, and Ore Generation</h2>
+    <p>
+        Before we get into this week's (or this bi-week's?) DevLog I want to apologize for the delay. Commitments in my life have left me with less time to work on Towny than I would like to, but we're still trucking along!
+        Another <span style="text-decoration: line-through;">excuse</span> reason for delay is the creation of the website you're reading this on!
+        Writing DevLogs on discord with character limits, limited formatting options, lack of pictures, and all that junk made writing that first DevLog a pretty terrible experience, so here we are!
+    </p>
+    <hr>
+    <h3><u>Solar Flux Reborn</u></h3>
+    <p>
+        First off, we've got the most basic of the changes since last DevLog, finishing the Solar Flux rework.
+        This is a pretty basic one, so I'll keep it brief. Solar Flux reborn has been reworked to be more in line with our vision of automation and assembly lines.
+        This includes removing some of the more overpowered later game panels, changing the recipe for all existing panels to fit better into our progression, and creating some cool crafting recipes.
+        All pretty basic stuff, but it should make solar panels a bit more interesting to craft, and should blend better with our existing power generation methods.
+    </p>
+    <img src="images/devlog2_1.png" alt="Solar Flux Reborn Rework" class="devlogimg">
+    <br>
+    <h3><u>Tech Tree Planning</u></h3>
+    <p>
+        This is a big one, it's been a thing we've been trying to coordinate and figure out for months now at this point, but it's done.
+        All costs, placements of techs, and specializations are (for the most part) finalized and ready for implementation into the modpack.
+        This has been something we've been working on and discussing over the course of numerous meetings lasting hours, as we try to balance the tree the best we can, without actually performing a live play test.
+        We think our values are fairly balanced, and while I for sure have my doubts that they're perfect, they should be good enough for our play test, so we can gather feedback on what needs to be tweaked.
+        After all this is an open beta, so just because we spend lots of time working on new features, doesn't mean we'll get them right the first time. That's what y'all are for!
+    </p>
+    <img src="images/devlog2_2.png" alt="Tech Tree Planning" class="devlogimg" style="width: 20%">
+    <p>
+        This might not seem too exciting, but I can assure you this was the last big meeting that needed to happen before we could, for good, finish up development on 0.7!
+        Be on the lookout for more news relating to the finishing of the new research system (aka the whole point of the update), which should hopefully be the forefront of my next DevLog.
+    </p>
+    <br>
+    <h3><u>Ore Generation</u></h3>
+    <p>
+        This has been what I've been spending the most time on since the last DevLog, so let's jump right into it.
+    </p>
+    <p>
+        First, the refactor. Our original Geolosys ore generation was written in JSON, the typical way of writing your own generation for Geolosys.
+        However, this was difficult to work with because, JSON has to adhere to a specific format for it to be properly read by the code reading it.
+        As a result of this, our ore gen file was difficult to read and make changes too.
+        To rectify this, making changes to our ore gen easier in the future, we've rewritten everything using CraftTweaker rather than JSON.
+        This results in much easier to read code, allowing us to more easily make changes to how ore is generated.
+    </p>
+    <img src="images/devlog2_3.jpg" alt="Ore Generation Refactor" class="devlogimg" style="width: 40%">
+    <p>
+        It's not just a basic code refactor though! We're reworking all of our generation based on player feedback, and our own observations.
+        Vein size, vein rarity, and vein y-levels have all been adjusted or are in the process of being adjusted, with the goal of making too overpowered veins more balanced, and too rare veins actually reasonable to find and utilize.
+        All of these changes are being more thoroughly tested, calculated, and measured via Excel sheets and graphs, to create a more balanced experience ahead of the play test.
+    </p>
+    <img src="images/devlog2_4.png" alt="Ore Generation Balancing" class="devlogimg">
+    <p>
+        Another major change to ore generation is the reimplementation of vanilla ore generation.
+        Well not completely vanilla ore generation...
+        Geolosys deposits are the best and will always be the best method of gathering materials for your nation, but what do you do when you're just getting started, or just really struggling to find that Redstone deposit?
+        Well you go mining for it! That's right, 0.7 marks the return of caving and mining through our new impure ore veins. They generate just like vanilla ore generation, just much smaller.
+        Mining this way sucks, but sometimes it beats spending hours looking for a huge Lapis vein to get the one piece of Lapis you need to make your cyan bed.
+    </p>
+    <hr>
+    <p>
+        That's all for today's DevLog. Again sorry for the delays, but when next DevLog rolls around we should have some more cool news to share.
+        Heck we might even be on track for a late Summer release. But who knows? It's not like our release date estimates are ever accurate anyway!
+    </p>
+    <p>Thanks for sticking with the project, see y'all soon!</p>
+</main>
+<footer>
+    <a href="#top">Back to top</a>
+    <br>
+    Copyright &copy 2024 The Moose Corporation
+</footer>
+</body>
+</html>

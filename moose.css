@@ -81,6 +81,12 @@ a:hover {
 dd {
     padding: 10px;
 }
+.devlogimg {
+    display: block;
+    margin: auto;
+    width: 75%;
+    border: 4px solid white;
+}
 @font-face { font-family: Lexend; src: url("font/Lexend.ttf") }
 @font-face { font-family: Minecraft; font-weight: normal; font-style: normal; src: url("font/MinecraftRegular.otf"); }
 @font-face { font-family: Minecraft; font-weight: bold; font-style: normal; src: url("font/MinecraftBold.otf"); }
