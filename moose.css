@@ -23,7 +23,7 @@ main {
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 20px;
-    width: 68%;
+    width: 80%;
 }
 footer {
     color: white;
@@ -44,7 +44,7 @@ footer {
     list-style-type: none;
     padding-inline-start: 10px;
     font-family: Lexend;
-    font-size: 40pt;
+    font-size: 30pt;
     margin: 0;
 }
 #gallery {
@@ -65,7 +65,7 @@ footer {
 }
 .left {
     float: left;
-    width: 25%;
+    width: 15%;
     font-family: Lexend, serif;
     color: white;
     margin: 0 0 0 1.5%;
