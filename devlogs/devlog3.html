@@ -25,7 +25,7 @@
     </nav>
     <div id="server">
         <p style="text-align: center"><u>Official Server</u></p>
-        <p>Server Ip: towny.themoosecorporation.com</p>
+        <p>Server Ip: play.projecttowny.com</p>
         <p>Server Status: <span style="color: red">Offline</span></p>
         <p>Player Count: 0/100</p>
     </div>
@@ -36,68 +36,100 @@
     </div>
 </div>
 <main>
-    <h1><u>DevLog 3 <span style="font-size: 16pt">[9/25/2024]</span></u></h1>
-    <h2>Solar Flux Reborn Rework Finished, Tech Tree Planning, and Ore Generation</h2>
+    <h1><u>DevLog 3 <span style="font-size: 16pt">[10/14/2024]</span></u></h1>
+    <h2>Gold Standard, Research Overhaul, Final Steps to 0.7</h2>
     <p>
-        Before we get into this week's (or this bi-week's?) DevLog I want to apologize for the delay. Commitments in my life have left me with less time to work on Towny than I would like to, but we're still trucking along!
-        Another <span style="text-decoration: line-through;">excuse</span> reason for delay is the creation of the website you're reading this on!
-        Writing DevLogs on discord with character limits, limited formatting options, lack of pictures, and all that junk made writing that first DevLog a pretty terrible experience, so here we are!
+        Project Towny 0.7 is entering its final stages of development. No release dates or anything because we don't want to rush the launch like we did for 0.6 (we all saw how that went).
+        But I can confirm we are close. And since I've mainly been spending my time on development, I outsourced this Devlog to Sona, so without further ado:
     </p>
+    <h3><i>Woe, Sona be upon ye</i></h3>
     <hr>
-    <h3><u>Solar Flux Reborn</u></h3>
+    <h3><u>All that glitters...</u></h3>
     <p>
-        First off, we've got the most basic of the changes since last DevLog, finishing the Solar Flux rework.
-        This is a pretty basic one, so I'll keep it brief. Solar Flux reborn has been reworked to be more in line with our vision of automation and assembly lines.
-        This includes removing some of the more overpowered later game panels, changing the recipe for all existing panels to fit better into our progression, and creating some cool crafting recipes.
-        All pretty basic stuff, but it should make solar panels a bit more interesting to craft, and should blend better with our existing power generation methods.
+        We've teased it in the discord before, but it's official: We're adopting the gold standard for the currency system.
+        No more are you able to submit miscellaneous items of dubious quality to a box made of wood and wool, much as you may be shocked to learn.
+        No, money is gold, and gold is money. Rather literally, in fact, as the only way to acquire money will be to mine gold and exchange it with an NPC at spawn.
     </p>
-    <img src="images/devlog2_1.png" alt="Solar Flux Reborn Rework" class="devlogimg">
+    <p>
+        You can establish your town anywhere you want, rest assured. Even so, a base 10k blocks away isn't great for Player Interaction (killing each other with sticks)
+        so this method is used to reign in the range you go to. Of course, there will be a global market that can be traded on regardless of distance,
+        so I'm sure that towns nearer to spawn will be more than happy to exchange gold for cash for you, for a small fee, of course.
+    </p>
+    <img src="images/devlog3_1.png" alt="Global Market" class="devlogimg">
     <br>
-    <h3><u>Tech Tree Planning</u></h3>
+    <h3><u>Money Money Money</u></h3>
     <p>
-        This is a big one, it's been a thing we've been trying to coordinate and figure out for months now at this point, but it's done.
-        All costs, placements of techs, and specializations are (for the most part) finalized and ready for implementation into the modpack.
-        This has been something we've been working on and discussing over the course of numerous meetings lasting hours, as we try to balance the tree the best we can, without actually performing a live play test.
-        We think our values are fairly balanced, and while I for sure have my doubts that they're perfect, they should be good enough for our play test, so we can gather feedback on what needs to be tweaked.
-        After all this is an open beta, so just because we spend lots of time working on new features, doesn't mean we'll get them right the first time. That's what y'all are for!
+        Unlike previous versions, it's not the be-all-know-all of research. You will need money for nearly every
+        technology past the initial stages because the scientists keep whining about requiring food and whatnot,
+        but you'll also need to give them, y'know, the actual stuff they can do science with.
     </p>
-    <img src="images/devlog2_2.png" alt="Tech Tree Planning" class="devlogimg" style="width: 20%">
     <p>
-        This might not seem too exciting, but I can assure you this was the last big meeting that needed to happen before we could, for good, finish up development on 0.7!
-        Be on the lookout for more news relating to the finishing of the new research system (aka the whole point of the update), which should hopefully be the forefront of my next DevLog.
+        An amount of money is also necessary to found a town, and research is tied to towns, so you'll need to do that
+        before anything else. Rest assured: Each player will begin with a small balance, roughly a fifth of the amount required.
+        If a team forms with 5 players, they can immediately start. If they're smaller than that, no worries, you'll just have to dig for gold for a bit.
     </p>
+    <img src="images/devlog3_2.png" alt="Research Machine" class="devlogimg" style="width: 40%">
     <br>
-    <h3><u>Ore Generation</u></h3>
+    <h3><u>Player Interaction (killing each other with sticks)</u></h3>
     <p>
-        This has been what I've been spending the most time on since the last DevLog, so let's jump right into it.
+        Now having gold is fun and all, but you know what's more fun? Having someone else's gold! It can be stressful
+        killing everyone you see without knowing how much gold they have, so we've graciously decided to fix that.
+        Above every player's head is a counter for how much gold they're currently holding, which also happens to be how
+        much will fly out of them like a pinata when you kill them with sticks. This value takes into account all forms,
+        including ingots, blocks, nuggets, ores, and anything else that you can easily convert to ingot form.
     </p>
+    <img src="images/devlog3_10.png" alt="Spawn Construction" class="devlogimg">
     <p>
-        First, the refactor. Our original Geolosys ore generation was written in JSON, the typical way of writing your own generation for Geolosys.
-        However, this was difficult to work with because, JSON has to adhere to a specific format for it to be properly read by the code reading it.
-        As a result of this, our ore gen file was difficult to read and make changes too.
-        To rectify this, making changes to our ore gen easier in the future, we've rewritten everything using CraftTweaker rather than JSON.
-        This results in much easier to read code, allowing us to more easily make changes to how ore is generated.
-    </p>
-    <img src="images/devlog2_3.jpg" alt="Ore Generation Refactor" class="devlogimg" style="width: 40%">
-    <p>
-        It's not just a basic code refactor though! We're reworking all of our generation based on player feedback, and our own observations.
-        Vein size, vein rarity, and vein y-levels have all been adjusted or are in the process of being adjusted, with the goal of making too overpowered veins more balanced, and too rare veins actually reasonable to find and utilize.
-        All of these changes are being more thoroughly tested, calculated, and measured via Excel sheets and graphs, to create a more balanced experience ahead of the play test.
-    </p>
-    <img src="images/devlog2_4.png" alt="Ore Generation Balancing" class="devlogimg">
-    <p>
-        Another major change to ore generation is the reimplementation of vanilla ore generation.
-        Well not completely vanilla ore generation...
-        Geolosys deposits are the best and will always be the best method of gathering materials for your nation, but what do you do when you're just getting started, or just really struggling to find that Redstone deposit?
-        Well you go mining for it! That's right, 0.7 marks the return of caving and mining through our new impure ore veins. They generate just like vanilla ore generation, just much smaller.
-        Mining this way sucks, but sometimes it beats spending hours looking for a huge Lapis vein to get the one piece of Lapis you need to make your cyan bed.
+        Now you may be thinking "Doesn't that make the process of shuttling gold to spawn in order to get the money
+        required for nearly all technologies highly dangerous?" And to that I say: Yes. It does. Do something about it.
+        Live close to spawn crammed between everyone else who chose to do the same. Build transportation networks for
+        quicker travel to minimize risk. Give your crayon-eating teammate gobs of heavy weaponry and point them in the
+        direction of where you saw someone stop crouching for a moment.
     </p>
     <hr>
     <p>
-        That's all for today's DevLog. Again sorry for the delays, but when next DevLog rolls around we should have some more cool news to share.
-        Heck we might even be on track for a late Summer release. But who knows? It's not like our release date estimates are ever accurate anyway!
+        Ok, that's all for Sona, I'm back. Let's talk about the research overhaul, the whole point of the update,
+        because it has now been completed.
     </p>
-    <p>Thanks for sticking with the project, see y'all soon!</p>
+    <h3><u>Research Overhaul</u></h3>
+    <p>
+        Research now falls into 3 tiers of technologies (or ages, or eras, or however else you wanna organize them).
+        Research is obtained with both money and research points. Money is outlined above but research points are a new
+        mechanic similar in nature to Factorio's Science Packs, albeit with some differences. There are 16 different research points each
+        with their own ways to generate them and each unlocked with different techs.
+    </p>
+    <img src="images/devlog3_6.png" alt="Research" class="devlogimg" style="width: 40%">
+    <p>
+        Tier 1 research is available from the start after founding a town, and is researched in the "Primitive Research Bench" multiblock.
+    </p>
+    <img src="images/devlog3_3.png" alt="Research" class="devlogimg" style="width: 40%">
+    <p>
+        Tier 2 research is available upon researching Electricity, and is researched in the "Research Workshop" multiblock.
+    </p>
+    <img src="images/devlog3_4.png" alt="Research" class="devlogimg" style="width: 40%">
+    <p>
+        Tier 3 research is available upon researching Scientific Theory, and is researched in the "Research Laboratory" multiblock.
+    </p>
+    <img src="images/devlog3_5.png" alt="Research" class="devlogimg" style="width: 40%">
+    <p>
+        Research points are generated in the research multiblock associated with that tier. Research points have multiple
+        recipes to craft them, with increasing complexity but increased efficiency with the later recipes, most of which are
+        available in either later researches, or by progressing in the mod associated with the tech.
+    </p>
+    <div style="width: 90%; margin: auto; display: flex">
+        <img src="images/devlog3_7.png" alt="Research Points" class="devlogimg" style="width: 30%; display: inline">
+        <img src="images/devlog3_8.png" alt="Research Points" class="devlogimg" style="width: 30%; display: inline">
+        <img src="images/devlog3_9.png" alt="Research Points" class="devlogimg" style="width: 30%; display: inline">
+    </div>
+    <hr>
+    <h3><u>Final Steps</u></h3>
+    <p>
+        There's a whole lot more to explore with the research overhaul, but I want to leave that up to the playtest!
+        And speaking of playtest, 0.7 is right around the corner! In fact right now we're just putting on the finishing touches.
+        The modpack will be updated on Curseforge upon the completion of 0.7, which the official server going online
+        about a week later to give time to set up server side things, and fully pregenerate the world (without totally breaking it this time).
+    </p>
+    <p>Keep an eye on the discord for updates and sneak peaks as we get even closer to the modpack release!</p>
 </main>
 <footer>
     <a href="#top">Back to top</a>
