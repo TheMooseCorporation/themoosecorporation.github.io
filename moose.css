@@ -2,7 +2,7 @@ header {
     background: rgba(255, 255, 255, 0.1);
 }
 body {
-    background-image: url("images/background.png");
+    background-image: url("images/background.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     backdrop-filter: blur(2px);
